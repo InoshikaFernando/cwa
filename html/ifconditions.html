@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>If Conditions</title>
+  </head>
+  <body>
+    <h1>If Conditions in HTML</h1>
+    <p id="result"></p>
+    <script>
+      const number = 0; 
+      let resultText = "";
+      if (number > 0) {
+          resultText = "The number is positive.";
+      } else if (number < 0) {
+          resultText = "The number is negative.";
+      } else {
+          resultText = "The number is zero.";
+      }
+      document.getElementById("result").innerHTML = resultText;
+    </script>
+  </body>
+</html>
