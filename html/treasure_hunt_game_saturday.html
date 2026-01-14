@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Treasure hunt game</title>
+	</head>
+	<body>
+		<h1>Treasure hunt game</h1>
+		<p>Click a chest to find the treasure</p>
+		<button id="startGame" onclick="StartGame()">Start Game</button>
+		<div id="gameArea"></div>
+		<p id="message"></p>
+		<script>
+			let treasureNumber = 0;
+
+			function StartGame() {
+				document.getElementById("startGame").style.display = "none";
+				document.getElementById("gameArea").innerHTML = "";
+				document.getElementById("message").innerHTML = "";
+				
+				treasureNumber = Math.floor(Math.random() * 3) + 1;
+				for(let i=1; i <= 3; i++) {
+					let chest = document.createElement("div");
+					chest.classList.add("chest");
+					chest.innerHTML = "💰";
+					chest.onclick = function(){
+						checkChest(i);
+					}
+					document.getElementById("gameArea").appendChild(chest);
+				}
+				
+			}
+			
+			function checkChest(chestNumber) {
+				
+			}
+		</script>
+	</body>
+</html>

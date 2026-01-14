@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Speed Game</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: #f2f7ff;
+    }
+    h1 {
+      color: #0055cc;
+    }
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    #count {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>⏱ Click Speed Challenge!</h1>
+  <p>Click the button as many times as you can in <b>5 seconds</b>!</p>
+
+  <button id="clickBtn" onclick="countClick()">Click Me!</button>
+  <p id="count">Clicks: 0</p>
+  <p id="timer">Time: 5s</p>
+
+  <script>
+    let count = 0;
+    let timeLeft = 5;
+    let timerRunning = false;
+    let timer;
+
+    function countClick() {
+      if (!timerRunning) {
+        startTimer();
+      }
+
+      if (timeLeft > 0) {
+        count++;
+        document.getElementById("count").innerText = "Clicks: " + count;
+      }
+    }
+
+    function startTimer() {
+      timerRunning = true;
+
+      timer = setInterval(() =>{
+        timeLeft--;
+        document.getElementById("timer").innerText = "Time: " + timeLeft;"s";
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          document.getElementById("clickBtn").disabled = true;
+          document.getElementById("timer").innerText = "⏰ Time's up!";
+          document.getElementById("count").innerText += " 🎉";
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

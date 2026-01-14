@@ -1,0 +1,34 @@
+<html>
+    <head>
+		<title>
+			Toss a coin game
+		</title>
+		<style>
+			body{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Toss A coin game</h1>
+        <p>Click the button to toss a coin!</p>
+		<button onclick="tossACoin()">TOSS</button>
+		<p id="result"></p>
+
+		<script>
+			function tossACoin(){
+				const coinValue = Math.random();
+				// true means head, false means tail
+				const coin = coinValue < 0.5?true: false;
+				
+				let stringMessage = ""
+				if (coin) {
+					stringMessage = "You won";
+				} else {
+					stringMessage = "You lose";
+				}
+				document.getElementById("result").innerHTML = stringMessage;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goal or Miss - Score Version</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: lightgreen;
+      margin-top: 80px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      background-color: darkgreen;
+      color: white;
+      cursor: pointer;
+    }
+
+    #message {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    #score {
+      font-size: 22px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚽ Goal or Miss</h1>
+  <p>Click the button to take your shot!</p>
+
+  <button onclick="shoot()">Kick!</button>
+  <p id="message"></p>
+  <p id="score">Score: 0 | Shots: 0</p>
+
+  <script>
+    let goals = 0;
+    let shots = 0;
+
+    function shoot() {
+      shots++;
+      let chance = Math.random(); // random number between 0 and 1
+
+      if (chance > 0.5) {
+        goals++;
+        document.getElementById("message").innerText = "🎯 GOAL! You scored!";
+      } else {
+        document.getElementById("message").innerText = "❌ Missed! Try again!";
+      }
+
+      // Update the score display
+      document.getElementById("score").innerText = "Score: " + goals + " | Shots: " + shots;
+    }
+  </script>
+</body>
+</html>

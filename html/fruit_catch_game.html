@@ -1,0 +1,104 @@
+<html>
+<head>
+  <title>🍎 Fruit Catch Game</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: "Comic Sans MS", cursive;
+      background: linear-gradient(to bottom, #c3f0ff, #fffacd);
+    }
+
+    h1 {
+      color: #006600;
+    }
+
+    .item {
+      font-size: 60px;
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .item:hover {
+      transform: scale(1.2);
+    }
+
+    #score {
+      font-size: 22px;
+      margin-top: 20px;
+    }
+
+    #message {
+      font-size: 24px;
+      color: #333;
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #66bb6a;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍎 Fruit Catch Game 🧺</h1>
+  <p>Click the basket to catch the item!</p>
+  <button id="startBtn" onclick="startGame()">Start Game</button>
+
+  <div id="gameArea"></div>
+  <p id="score">Score: 0</p>
+  <p id="message"></p>
+
+  <script>
+    let score = 0;
+
+    function startGame() {
+      score = 0;
+      document.getElementById("score").innerText = "Score: " + score;
+      document.getElementById("startBtn").style.display = "none";
+      document.getElementById("message").innerText = "";
+      document.getElementById("gameArea").innerHTML = "";
+
+      // Create basket and random item
+      let basket = document.createElement("div");
+      basket.innerHTML = "🧺";
+      basket.classList.add("item");
+      basket.onclick = function() {
+        catchItem(getRandomItem());
+      };
+
+      document.getElementById("gameArea").appendChild(basket);
+    }
+
+    // Function to randomly pick fruit or bomb
+    function getRandomItem() {
+      const items = ["🍎", "🍌", "🍇", "💣"];
+      const randomIndex = Math.floor(Math.random() * items.length);
+      return items[randomIndex];
+    }
+
+    // Function to check what was caught
+    function catchItem(item) {
+      if (item === "💣") {
+        document.getElementById("message").innerText = "💥 Boom! Game Over! Start again";
+        document.getElementById("startBtn").style.display = "inline-block";
+        document.getElementById("gameArea").innerHTML = "";
+      } else {
+        score++;
+        document.getElementById("message").innerText = "Nice catch! You got a " + item;
+      }
+
+      document.getElementById("score").innerText = "Score: " + score;
+    }
+  </script>
+</body>
+</html>

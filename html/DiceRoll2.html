@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Dice Roll Game</title>
+    <style>
+	      body {
+	        text-align:center;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Dice Roll Game</h1>
+    <p>Click the button to roll the dice!</p>
+    <button onclick="RollDice()">Roll</button>
+    <p id="diceResult"></p>
+    <script>
+      function RollDice() {
+        const diceValue = Math.ceil(Math.random() * 6);
+        if(diceValue > 3) {
+          document.getElementById("diceResult").innerHTML = "You roll " + diceValue + ". You win";
+        } else {
+          document.getElementById("diceResult").innerHTML = "You roll " + diceValue + ". You lose";
+        }
+      }
+    </script>
+  </body>
+</html>

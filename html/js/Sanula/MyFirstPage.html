@@ -1,0 +1,51 @@
+<html>
+	<head>
+        <title>My First Web Page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                color: blue;
+            }
+            h1 {
+                color: #4CAF50;
+                background-color: black;
+            }
+            p {
+                font-size: 16px;
+                color: red;
+            }
+            .para{
+                font-size: 18px;
+                color: purple;
+            }
+            #uniquePara {
+                font-size: 20px;
+                color: plum;
+            }
+        </style>
+    </head>
+	<Body>
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
+        <p>This is a paragraph.</p>
+        <p class="para"><b>This is bold text.</b></p>
+        <p><i>This is italic text.</i></p>
+        <p class="para"><u>This is underlined text.</u></p>
+        <p id="uniquePara">This paragraph has an ID.</p>
+
+        <script>
+            let a = 5;
+			let b = 10;
+			let c = "5";
+			let d = "10";
+			console.log(a + b);// this will print 15
+			console.log(c + d); // this will print 510
+            document.getElementById("uniquePara").innerHTML = "This is the updated content.";
+        </script>
+    </body>
+</html>

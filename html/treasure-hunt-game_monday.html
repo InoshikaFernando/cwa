@@ -1,0 +1,61 @@
+<html>
+	<style>
+		body {
+			text-align: center;
+			font-family:"Comic Sans MS", cursive;
+			background: linear-gradient(to bottom,#fff0b3,#ffd480);
+		}
+		h1 {
+			color: #b37400;
+		}
+		.chest {
+			display: inline-block;
+			font-size: 60px;
+			margin: 20px;
+			cursor: pointer;
+			transition: transform 0.2s;
+		}
+		.chest:hover {
+			transform: scale(1.2);
+		}
+	</style>
+	<head>
+		<title>Treasure hunt game</title>
+	</head>
+	<body>
+		<h1>Treasure hunt game</h1>
+		<p>Click a chest to find the treasure!</p>
+		<button id="startButton" onclick="startGame()">Start Game</button>
+		<div id="gameArea"></div>
+		<p id="message"></p>
+		<script>
+			let treasureBox = 0;
+			
+			function startGame() {
+				document.getElementById("startButton").style.display = "none";
+				document.getElementById("message").innerHTML = "";
+				document.getElementById("gameArea").innerHTML = "";
+				treasureBox = Math.floor(Math.random() * 3) + 1;
+				
+				for (let i = 1; i <=3; i++) {
+					let chest = document.createElement("div");
+					chest.innerHTML = "🧰";
+					chest.classList.add("chest");
+					chest.onclick = function() {
+						checkChest(i);
+					};
+					document.getElementById("gameArea").appendChild(chest);
+				}
+			}
+			
+			function checkChest(chestNumber) {
+				if(chestNumber === treasureBox) {
+					document.getElementById("message").innerHTML = "Congratulations";
+				}
+				else {
+					document.getElementById("message").innerHTML = "try again";
+				}
+			}
+		</script>
+	</body>
+</html>

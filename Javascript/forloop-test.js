@@ -22,8 +22,8 @@ function forloopReverse() {
 }
 
 function foreach() {
-    for (const object of objects) {
-        
+    for (const <> of <>s) {
+        console.log(<>)
     }
 }
 

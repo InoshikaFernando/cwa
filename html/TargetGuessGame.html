@@ -1,0 +1,62 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Fruit Target Guess Game</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: #e0f7fa;
+    }
+
+    button {
+      padding: 15px;
+      margin: 10px;
+      font-size: 30px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #message {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎯 Fruit Target Guess Game</h1>
+  <p>Guess which fruit the computer picked!</p>
+
+  <button onclick="guess('🍎')">🍎</button>
+  <button onclick="guess('🍌')">🍌</button>
+  <button onclick="guess('🍇')">🍇</button>
+
+  <p id="message"></p>
+
+  <script>
+    // Array of possible emojis
+    const choices = ["🍎", "🍌", "🍇"];
+
+    // Store the computer's target emoji
+    let target = getRandomEmoji();
+
+    // Function that returns a random emoji
+    function getRandomEmoji() {
+      const index = Math.floor(Math.random() * choices.length);
+      return choices[index];  // parameter is returned
+    }
+
+    // Function that checks the guess (uses one simple if)
+    function guess(playerGuess) {
+      if (playerGuess === target) {
+        document.getElementById("message").innerText = "🎉 Correct! You guessed " + target;
+      } else {
+        document.getElementById("message").innerText = "❌ Wrong! Try again!";
+      }
+    }
+  </script>
+
+</body>
+</html>

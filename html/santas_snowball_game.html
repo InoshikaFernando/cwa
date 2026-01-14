@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎅 Santa’s Snowball Toss</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      background: linear-gradient(to bottom, #cfe8ff, #ffffff);
+      margin-top: 80px;
+    }
+
+    h1 {
+      color: crimson;
+      text-shadow: 2px 2px 3px white;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      background-color: red;
+      color: white;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px gray;
+    }
+
+    button:hover {
+      background-color: darkred;
+    }
+
+    #message {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    #score {
+      font-size: 22px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #background {
+      margin-top: 30px;
+    }
+
+    .snowball {
+      width: 80px;
+      height: 80px;
+      background-color: white;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px lightgray;
+    }
+
+    .chimney {
+      width: 80px;
+      height: 100px;
+      background-color: #8b0000;
+      border-top: 20px solid #b22222;
+      margin-left: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎅 Santa’s Snowball Toss</h1>
+  <p>Click the button to throw a snowball into the chimney!</p>
+
+  <div id="background">
+    <div class="snowball"></div>
+    <div class="chimney"></div>
+  </div>
+
+  <button onclick="throwSnowball()">Throw!</button>
+  <p id="message"></p>
+  <p id="score">Score: 0 | Throws: 0</p>
+
+  <script>
+    let score = 0;
+    let throws = 0;
+
+    function throwSnowball() {
+      throws++;
+      let chance = Math.random(); // random number between 0 and 1
+
+      if (chance > 0.5) {
+        score++;
+        document.getElementById("message").innerText = "🎯 Ho ho ho! Snowball in the chimney!";
+      } else {
+        document.getElementById("message").innerText = "❌ Missed! The snowball hit the roof!";
+      }
+
+      document.getElementById("score").innerText =
+        "Score: " + score + " | Throws: " + throws;
+    }
+  </script>
+</body>
+</html>

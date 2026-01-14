@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Fruit target Guess Game</title>
+		<style>
+			body {
+				text-align:center;
+				background: #e0f7fa;
+			}
+			button {
+				font-size: 30px;
+				border-radius: 10px;
+				cursor: pointer;
+			}
+			#message {
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Fruit Target Guess Game</h1>
+		<p>Guess which fruit the computer picked!</p>
+		
+		<button onclick="guess('apple')">🍎</button>
+		<button onclick="guess('banana')">🍌</button>
+		<button onclick="guess('grapes')">🍇</button>
+		
+		<p id="message"></p>
+		<script>
+			const fruits = ["apple", "banana", "grapes"];
+			
+			const targetFruitIndex = Math.floor(Math.random()*fruits.length);
+			
+			function guess(fruit) {
+				const computersChoice = fruits[targetFruitIndex];
+				if (computersChoice===fruit) {
+					document.getElementById("message").innerHTML = "You won";
+				} else {
+					document.getElementById("message").innerHTML = "Sorry, guess again";
+				}
+			}
+		</script>
+	</body>
+</html>

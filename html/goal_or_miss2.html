@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Goal or miss - Score version</title>
+		<style>
+			body{
+				text-align:center;
+				background-color: lightgreen;
+			}
+			button {
+				font-size: 20px;
+				border-radius: 8px;
+				background-color: darkgreen;
+				color: white;
+				cursor: pointer;
+			}
+			#score{
+				font-size: 22px;
+				margin-top: 15px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Goal or Miss</h1>
+		<p>Click the button to take your shot!</p>
+		<button onclick="kickTheBall()">Kick!</button>
+		<p id="message"></p>
+		<p id="score">Score: 0| Shots: 0</p>
+		<script>
+			let score = 0;
+			let shots = 0;
+			function kickTheBall() {
+				shots = shots + 1;
+				const goalValue = Math.random();
+				let message = "";
+				if(goalValue<0.5) {
+					message = "Sorry you missed it"
+				} else {
+					score = score + 1;
+					message = "Congratulations! you got a goal";
+				}
+				document.getElementById("message").innerHTML = message;
+				document.getElementById("score").innerHTML = "Score: " + score + "| Shots: " + shots;
+			}
+		</script>
+	</body>
+</html>
